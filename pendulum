@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+#include "geom3.hpp"
+
+
+struct pndl {
+	const double deltat = 0.01;
+	double k = 0, mu = 16;
+	Rdec2D r_poise = { 4.0, 7.0 }, r = { 1.0, 2.0 }, v = { 1.0, 1.0 }, f = { 0.0, 0.0 }, a = { 0.0, 0.0 };
+	double t = 0.0;
+};
+
+void movement(pndl& pendulum) {
+	pndl mod = pendulum;
+	pendulum.t += mod.deltat;
+	pendulum.r += mod.v * mod.deltat;
+	pendulum.v += mod.a * mod.deltat;
+	pendulum.a = mod.f;
+	pendulum.f = (mod.r_poise - mod.r) * mod.k - Norm(mod.v) * mod.mu;
+	std::cout<<pendulum.r<<std::endl;
+}
+
+
+void function(pndl pendulum) {
+	while (pendulum.t <= 10) {
+		for (int i = 0; i < 100; ++i) {
+			movement(pendulum);
+		}
+	}
+}
+
+int main() {
+	std::cout << "t  " << " " << "r(x; y)" << " " << "  v(x; y)" << std::endl;
+	pndl pendulum;
+	function(pendulum);
+	return 0;
+}
