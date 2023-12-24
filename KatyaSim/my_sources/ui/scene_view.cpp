@@ -1,7 +1,7 @@
 #include "../pch.h"
 #include "scene_view.h"
 
-#include "C:\tit\cmake-imgui/imgui\imgui.h"
+#include <imgui.h>
 
 namespace nui
 {

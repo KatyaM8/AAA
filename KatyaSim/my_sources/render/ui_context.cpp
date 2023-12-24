@@ -3,8 +3,8 @@
 #include "ui_context.h"
 
 #include "imgui.h"
-#include "../../imguilib/backends/imgui_impl_opengl3.h"
-#include "../../imguilib/backends/imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_impl_glfw.h"
 // GL includes
 //#include <gl/glew.h>
 //#include <GLFW/glfw3.h>
