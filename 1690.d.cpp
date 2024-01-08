@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 int main() {
 	int t = 0;
@@ -12,7 +12,6 @@ int main() {
 			std::cin >> a[i];
 		}
 		int max_black_on_k = 0;
-		//проходимся рамкой по массиву и ищем максимальное кол-во В на отрезке k
 		for (int i = 0; i < n - k + 1; ++i) {
 			int black_on_k = 0;
 			for (int j = i; j < k + i; ++j) {
@@ -25,8 +24,6 @@ int main() {
 				black_on_k = 0;
 			}
 		}
-		//если из k вычтем максимальное кол-во В, то получим минимальное кол-во белых,
-		//которое нужно перекрасить в чёрный
 		std::cout << k - max_black_on_k << std::endl;
 	}
 
